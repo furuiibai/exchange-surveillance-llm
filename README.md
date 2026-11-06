@@ -44,42 +44,30 @@ Case JSON Input → Feature Calculation → Prompt Assembly → LLM Generate Rep
 ```bash
 pip install pydantic
 
-Note: This project uses self-built model logic, no external LLM API / OpenAI dependency required.
+Note: This project uses self-built model logic, no external LLM / OpenAI API dependency.
 
-意思：本项目使用自研模型逻辑，不需要外部大模型API、不依赖OpenAI。
+from src.pipeline import run_pipeline
+from src.schema import SuspiciousCase
 
-### ② 新版 src/generator.py（移除OpenAI，留给你后续放自己训练的模型）
-```python
-from typing import List, Dict
+# Load your case from data/samples
+# run_pipeline(case, output_path="examples/spoofing/report.md")
 
-class ReportGenerator:
-    """Self-built model generator, replace with your trained model later"""
-    def __init__(self):
-        pass
 
-    def generate_report_markdown(self, messages: List[Dict]) -> str:
-        # TODO: Here you will load your trained model, feed case features, output report text
-        # 后续在这里加载你自己训练好的模型，输入案件特征，输出报告
-        return """
-# Suspicious Trading Investigation Report
-## Case Overview
-This case is classified as spoofing activity. Multiple accounts submitted large orders with high cancellation rate to mislead market participants.
+解释：
+1. 安装命令保留
+2. Note 保留，说明**无外部大模型依赖，预留自研模型位置**
+3. 下面放极简的调用示例代码（注释状态，告诉别人怎么启动）
+4. generator.py 的完整代码**不要贴进README**！它是仓库里 src 下的文件，别人进仓库点开 src/generator.py 就能看到源码
 
-## Behaviour Analysis
-The cancel rate of the involved orders is very high, which is a typical characteristic of spoofing. Traders place visible orders and cancel them rapidly before execution, without the intention to complete real trades.
+✅ 区分清楚：
+- README：告诉别人怎么装、怎么跑、项目是干嘛的
+- generator.py：是仓库里的源码文件，放实现、TODO注释
 
-## Evidence Summary
-- High cancel rate
-- Large quoted size with no intention of fill
-- Orders are withdrawn in a very short time window
+顺带同步更新你的 Highlights，把这句加上，统一口径：
+```markdown
+✨ Project Highlights
+This pipeline decouples quantitative feature calculation and model-based report generation, with a dedicated numeric validation layer to mitigate numerical hallucination — all figures appearing in the final investigation report must match pre-computed order-flow metrics.
+Self-built model workflow, no external LLM API required.
 
-## Risk Assessment
-High risk: This behaviour distorts market depth and misleads other market participants.
 
-## Recommendation
-Restrict trading permissions of the involved accounts and issue a formal warning.
-"""
-
-# MockGenerator 和上面合并，现在 Generator 本身就是预留的自研模型入口
-MockGenerator = ReportGenerator
 
