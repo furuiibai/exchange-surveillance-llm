@@ -30,7 +30,7 @@ This project uses self-built models and local order data, no external LLM API.
 
 ## 🧠 Workflow
 
-Case JSON Input → Feature Calculation → Prompt Assembly → LLM Generate Report → Numeric Validation → Export Markdown Report
+Case JSON Input → Feature Calculation → Metric Assembly → Model Generate Report → Numeric Validation → Export Markdown Report
 
 1. Load standardized suspicious trading case
 2. Compute fixed quantitative indicators from raw order events
