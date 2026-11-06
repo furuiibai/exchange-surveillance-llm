@@ -24,3 +24,5 @@ def run_pipeline(case: SuspiciousCase, output_md_path: str):
 
 if __name__ == "__main__":
     print("Pipeline ready. Load case and run.")
+
+run_pipeline(case, "examples/spoofing/report.md")
