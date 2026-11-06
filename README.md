@@ -6,9 +6,8 @@ This pipeline decouples quantitative feature calculation and LLM text generation
 > In compliance scenarios, fabricated numbers are far more harmful than incomplete reports.
 
 ## 📁 Project Structure
-
-"""
-── src/
+```
+├── src/
 │   ├── schema.py           # Pydantic data schema for standardized trading case input
 │   ├── features.py         # Order-flow feature calculator (cancel rate, notional, self-trade volume)
 │   ├── prompt_builder.py   # System & user prompt template
@@ -26,7 +25,8 @@ This pipeline decouples quantitative feature calculation and LLM text generation
 ├── .gitignore
 ├── LICENSE
 └── README.md
-"""
+```
+
 
 ## 🧠 Workflow
 
