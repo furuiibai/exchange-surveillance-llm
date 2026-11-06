@@ -11,7 +11,7 @@ This project uses self-built models and local order data, no external LLM API.
 │   ├── schema.py           # Pydantic data schema for standardized trading case input
 │   ├── features.py         # Order-flow feature calculator (cancel rate, notional, self-trade volume)
 │   ├── prompt_builder.py   # System & user prompt template
-│   ├── generator.py        # LLM caller + mock backend for offline demo
+│   ├── generator.py        # Model generator + mock backend for offline demo
 │   ├── validators.py       # Numeric hallucination checker (core module)
 │   ├── render.py           # Save output to markdown report
 │   └── pipeline.py         # End-to-end workflow entry
