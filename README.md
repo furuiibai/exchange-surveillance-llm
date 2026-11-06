@@ -34,7 +34,7 @@ Case JSON Input → Feature Calculation → Prompt Assembly → LLM Generate Rep
 
 1. Load standardized suspicious trading case
 2. Compute fixed quantitative indicators from raw order events
-3. Inject only pre-calculated metrics into LLM prompt
+3. Feed pre-computed metrics into the internal model
 4. Generate formal market-surveillance investigation report
 5. Auto-validate all core numbers inside the report
 6. If validation passes, save report; otherwise throw error
