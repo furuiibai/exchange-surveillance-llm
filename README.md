@@ -42,4 +42,44 @@ Case JSON Input → Feature Calculation → Prompt Assembly → LLM Generate Rep
 ## 🚀 Quick Start
 ### Dependency
 ```bash
-pip install pydantic openai
+pip install pydantic
+
+Note: This project uses self-built model logic, no external LLM API / OpenAI dependency required.
+
+意思：本项目使用自研模型逻辑，不需要外部大模型API、不依赖OpenAI。
+
+### ② 新版 src/generator.py（移除OpenAI，留给你后续放自己训练的模型）
+```python
+from typing import List, Dict
+
+class ReportGenerator:
+    """Self-built model generator, replace with your trained model later"""
+    def __init__(self):
+        pass
+
+    def generate_report_markdown(self, messages: List[Dict]) -> str:
+        # TODO: Here you will load your trained model, feed case features, output report text
+        # 后续在这里加载你自己训练好的模型，输入案件特征，输出报告
+        return """
+# Suspicious Trading Investigation Report
+## Case Overview
+This case is classified as spoofing activity. Multiple accounts submitted large orders with high cancellation rate to mislead market participants.
+
+## Behaviour Analysis
+The cancel rate of the involved orders is very high, which is a typical characteristic of spoofing. Traders place visible orders and cancel them rapidly before execution, without the intention to complete real trades.
+
+## Evidence Summary
+- High cancel rate
+- Large quoted size with no intention of fill
+- Orders are withdrawn in a very short time window
+
+## Risk Assessment
+High risk: This behaviour distorts market depth and misleads other market participants.
+
+## Recommendation
+Restrict trading permissions of the involved accounts and issue a formal warning.
+"""
+
+# MockGenerator 和上面合并，现在 Generator 本身就是预留的自研模型入口
+MockGenerator = ReportGenerator
+
