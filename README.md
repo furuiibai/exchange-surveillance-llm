@@ -1,7 +1,7 @@
 # exchange-surveillance-llm
 LLM workflow for exchange market surveillance, auto-generate investigation reports for suspicious trading cases including spoofing, wash trade and layering.
 
-✨ Project Highlights
+## Project Highlights
 This pipeline decouples quantitative feature calculation and model-based report generation, with a dedicated numeric validation layer to mitigate numerical hallucination — all figures in the report must match pre-computed order-flow metrics.
 This project uses self-built models and local order data, no external LLM API.
 
